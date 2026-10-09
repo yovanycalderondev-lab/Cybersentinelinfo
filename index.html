@@ -447,7 +447,7 @@
       color: var(--cyan);
     }
 
-    /* SOBRE NOSOTROS */
+    /* SOBRE NOSOTROS Y POR QUÉ ELEGIRNOS */
 
     .about-grid {
       display: grid;
@@ -506,10 +506,51 @@
       font-size: 12px;
     }
 
+    /* POR QUÉ ELEGIRNOS (NUEVA SECCIÓN DETALLADA DEL FOLLETO) */
+    .why-choose-section {
+      background: #091a2c;
+      border-block: 1px solid var(--border);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .why-card {
+      background: linear-gradient(145deg, #0d233c, #081729);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 25px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(72, 217, 245, .4);
+    }
+
+    .why-card h3 {
+      font-size: 16px;
+      color: var(--cyan);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
     /* SERVICIOS */
 
     .services-section {
-      background: #091a2c;
+      background: #071426;
       border-block: 1px solid var(--border);
     }
 
@@ -581,7 +622,7 @@
       margin-top: 20px;
     }
 
-    /* SECTORES */
+    /* SECTORES DETALLADOS */
 
     .industries-grid {
       display: grid;
@@ -680,6 +721,13 @@
       font-size: 13px;
     }
 
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
     /* FOOTER */
 
     footer {
@@ -735,7 +783,7 @@
         min-height: 390px;
       }
 
-      .about-grid, .industries-grid {
+      .about-grid, .industries-grid, .mission-grid {
         grid-template-columns: 1fr;
         gap: 35px;
       }
@@ -858,12 +906,12 @@
         padding: 72px 0;
       }
 
-      .value-grid {
+      .value-grid, .why-grid {
         grid-template-columns: 1fr;
         margin-top: 35px;
       }
 
-      .value-card {
+      .value-card, .why-card {
         padding: 23px;
       }
 
@@ -886,11 +934,6 @@
       .service-item p {
         font-size: 10px;
         line-height: 1.6;
-      }
-
-      .mission-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
       }
 
       .contact-section {
@@ -943,6 +986,7 @@
 
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#nosotros">Nosotros</a>
+        <a href="#por-que-elegirnos">Ventajas</a>
         <a href="#servicios">Servicios</a>
         <a href="#sectores">Sectores</a>
         <a href="#vision">Visión</a>
@@ -955,7 +999,7 @@
     <!-- PORTADA -->
     <section class="container hero" id="inicio">
       <div class="hero-copy">
-        <div class="eyebrow">Seguridad digital · Nueva generación</div>
+        <div class="eyebrow">Tecnología y Ciberseguridad para todos</div>
 
         <h1>
           Tu mundo digital.<br>
@@ -963,9 +1007,9 @@
         </h1>
 
         <p class="hero-description">
-          Conoce tu entorno digital, identifica riesgos y toma decisiones
-          más inteligentes para proteger lo que importa.
-          Ciberseguridad diseñada para personas, emprendedores y empresas.
+          Ya sea que estés emprendiendo un nuevo proyecto, fortaleciendo tu seguridad digital 
+          o buscando proteger tus activos tecnológicos, estamos aquí para convertir tus necesidades 
+          en soluciones de ciberseguridad eficaces y accesibles.
         </p>
 
         <div class="hero-buttons">
@@ -1035,43 +1079,67 @@
 
         <div class="about-copy">
           <p>
-            CyberSentinel is una plataforma de ciberseguridad diseñada para
-            ayudar a personas y organizaciones a conocer, gestionar y proteger
-            su entorno digital.
+            CyberSentinel es una plataforma de ciberseguridad diseñada para ayudar a personas 
+            y empresas a supervisar, gestionar y proteger sus activos digitales. Mediante herramientas 
+            de seguridad accesibles, gestión de activos y monitoreo de alertas, buscamos hacer que 
+            la ciberseguridad sea más preventiva, comprensible y accesible para todos.
           </p>
           <p>
-            Nuestra meta es hacer que la seguridad digital sea más comprensible
-            y accesible, facilitando la identificación de riesgos y la toma de
-            decisiones informadas.
+            Nuestra misión es convertir la seguridad digital en una parte fundamental de la vida cotidiana, 
+            ayudando a las personas a identificar riesgos, tomar decisiones informadas y tener un mayor 
+            control sobre su entorno digital.
           </p>
         </div>
       </div>
+    </section>
 
-      <div class="value-grid">
-        <article class="value-card reveal">
-          <div class="value-icon">⌕</div>
-          <h3>Visibilidad</h3>
-          <p>Organiza la información de tus activos digitales para comprender mejor tu entorno tecnológico.</p>
-        </article>
+    <!-- ¿POR QUÉ ELEGIR CYBERSENTINEL? (NUEVA SECCIÓN DEL FOLLETO) -->
+    <section class="why-choose-section" id="por-que-elegirnos">
+      <div class="container section">
+        <div class="eyebrow">02 — ¿Por qué elegirnos?</div>
+        <h2>Razones para confiar en <span class="gradient-text">CyberSentinel</span></h2>
+        <p class="section-intro">
+          Creemos que la ciberseguridad no debería ser exclusiva de las grandes empresas, sino una herramienta al alcance de cualquier persona.
+        </p>
 
-        <article class="value-card reveal">
-          <div class="value-icon">⌁</div>
-          <h3>Prevención</h3>
-          <p>Presta atención a las alertas y señales que pueden requerir una revisión de seguridad.</p>
-        </article>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <h3><span>✔</span> Seguridad accesible</h3>
+            <p>Diseñado para que cualquier persona pueda comprender y proteger su entorno digital sin complicaciones técnicas extremas.</p>
+          </article>
 
-        <article class="value-card reveal">
-          <div class="value-icon">◈</div>
-          <h3>Control</h3>
-          <p>Reúne información relevante para facilitar decisiones más conscientes sobre seguridad.</p>
-        </article>
+          <article class="why-card reveal">
+            <h3><span>✔</span> Visibilidad digital</h3>
+            <p>Facilita el control y la administración centralizada de los activos digitales de tu hogar, emprendimiento o negocio.</p>
+          </article>
+
+          <article class="why-card reveal">
+            <h3><span>✔</span> Enfoque preventivo</h3>
+            <p>Ayuda a identificar posibles riesgos a tiempo y presta atención constante a las alertas críticas de seguridad.</p>
+          </article>
+
+          <article class="why-card reveal">
+            <h3><span>✔</span> Gestión centralizada</h3>
+            <p>Reúne información relevante sobre los activos y las alertas en una misma plataforma integrada y fácil de usar.</p>
+          </article>
+
+          <article class="why-card reveal">
+            <h3><span>✔</span> Alta adaptabilidad</h3>
+            <p>Pensado a la medida de las necesidades específicas de usuarios particulares, emprendedores y empresas.</p>
+          </article>
+
+          <article class="why-card reveal">
+            <h3><span>✔</span> Tecnología moderna</h3>
+            <p>Desarrollado con estándares de desarrollo orientados al rendimiento, la alta eficiencia y la escalabilidad.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- SERVICIOS -->
     <section class="services-section" id="servicios">
       <div class="container section">
-        <div class="eyebrow">02 — Nuestros servicios</div>
+        <div class="eyebrow">03 — Nuestros servicios</div>
 
         <div class="services-heading">
           <h2>Herramientas para<br><span class="gradient-text">proteger tu entorno.</span></h2>
@@ -1108,3 +1176,197 @@
             <div>
               <h3>Supervisión de seguridad digital</h3>
               <p>Mayor visibilidad del entorno tecnológico para apoyar la prevención de riesgos.</p>
+            </div>
+            <span class="service-arrow">↗</span>
+          </article>
+
+          <article class="service-item reveal">
+            <span class="service-number">04</span>
+            <div class="service-icon">✳</div>
+            <div>
+              <h3>Soluciones adaptadas a tus necesidades</h3>
+              <p>Un enfoque flexible para particulares, emprendedores y organizaciones.</p>
+            </div>
+            <span class="service-arrow">↗</span>
+          </article>
+        </div>
+
+        <p class="fine-print">
+          Las funciones disponibles dependen de la versión implementada de la plataforma.
+          No se garantiza protección absoluta frente a todas las amenazas.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTORES -->
+    <section class="container section" id="sectores">
+      <div class="eyebrow">04 — Sectores que atendemos</div>
+
+      <div class="industries-grid">
+        <div>
+          <h2>La seguridad importa <span class="gradient-text">en cada entorno.</span></h2>
+          <p class="section-intro">
+            CyberSentinel está diseñado para adaptarse a las necesidades de seguridad digital de distintos sectores, 
+            ayudando a proteger sus activos, identificar riesgos y mejorar la gestión de su entorno tecnológico.
+          </p>
+        </div>
+
+        <div class="industry-list">
+          <article class="industry">
+            <span class="industry-mark">↗</span>
+            <div>
+              <h3>Pequeñas y medianas empresas</h3>
+              <p>Protección y supervisión integral de activos digitales.</p>
+            </div>
+          </article>
+
+          <article class="industry">
+            <span class="industry-mark">↗</span>
+            <div>
+              <h3>Instituciones educativas</h3>
+              <p>Apoyo en la gestión y seguridad de sus sistemas tecnológicos.</p>
+            </div>
+          </article>
+
+          <article class="industry">
+            <span class="industry-mark">↗</span>
+            <div>
+              <h3>Profesionales independientes</h3>
+              <p>Herramientas eficaces para proteger equipos, cuentas y recursos digitales.</p>
+            </div>
+          </article>
+
+          <article class="industry">
+            <span class="industry-mark">↗</span>
+            <div>
+              <h3>Emprendedores y startups</h3>
+              <p>Seguridad digital adaptable al crecimiento dinámico de tus proyectos.</p>
+            </div>
+          </article>
+
+          <article class="industry">
+            <span class="industry-mark">↗</span>
+            <div>
+              <h3>Usuarios particulares</h3>
+              <p>Mayor control y visibilidad sobre tus activos digitales personales.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISIÓN Y VISIÓN -->
+    <section class="mission-section" id="vision">
+      <div class="container section">
+        <div class="eyebrow">05 — Nuestro propósito</div>
+
+        <div class="mission-grid">
+          <article class="mission-card reveal">
+            <div class="mission-symbol">◉</div>
+            <h2>Nuestra <span class="gradient-text">visión</span></h2>
+            <p>
+              Convertirnos en una plataforma de referencia que acerque la ciberseguridad a las personas 
+              y organizaciones, ayudándolas a comprender los riesgos y tomar mayor control de su entorno digital.
+            </p>
+          </article>
+
+          <article class="mission-card reveal">
+            <div class="mission-symbol">✳</div>
+            <h2>Nuestra <span class="gradient-text">misión</span></h2>
+            <p>
+              Desarrollar herramientas accesibles que faciliten la gestión de activos, la revisión de alertas 
+              y la toma de decisiones informadas, fomentando una cultura de seguridad digital cotidiana.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="container contact-section" id="contacto">
+      <div class="contact-panel">
+        <div class="eyebrow">06 — Hablemos</div>
+
+        <h2>La seguridad comienza<br>con una <span class="gradient-text">conversación.</span></h2>
+
+        <p>
+          ¿Tienes una pregunta, una propuesta o quieres conocer más sobre CyberSentinel? 
+          Escríbenos directamente y conversemos sobre tu seguridad digital.
+        </p>
+
+        <div class="contact-buttons">
+          <a class="button button-primary"
+             href="mailto:CyberSentinel.info@proton.me?subject=Consulta%20sobre%20CyberSentinel">
+            Contactar por correo ↗
+          </a>
+          <a class="button button-outline"
+             href="https://cybersentinel-xcze.onrender.com" target="_blank" rel="noopener">
+            Visitar plataforma ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="container footer-content">
+      <a class="brand footer-brand" href="#inicio">
+        <img src="https://raw.githubusercontent.com/yovanycalderondev-lab/Pagina/main/img/cybersentinel-logo.png" alt="CyberSentinel">
+        <span>CYBER<span>SENTINEL</span></span>
+      </a>
+
+      <p>CyberSentinel: conoce tu entorno digital, identifica riesgos y toma el control de tu seguridad.</p>
+      <p>© <span id="year"></span> CyberSentinel. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menú adaptable para móviles
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute(
+        'aria-label',
+        isOpen ? 'Cerrar menú' : 'Abrir menú'
+      );
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+
+    // Cerrar el menú al seleccionar una sección
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Abrir menú');
+        menuButton.textContent = '☰';
+      });
+    });
+
+    // Año automático en el pie de página
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animaciones de entrada al desplazarse
+    const elements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      elements.forEach(element => observer.observe(element));
+    } else {
+      elements.forEach(element => element.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
