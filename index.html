@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="CyberSentinel: soluciones de ciberseguridad para personas, emprendedores y empresas. Conoce, gestiona y protege tu entorno digital.">
+
+  <title>CyberSentinel | Seguridad Digital</title>
+
+  <!-- Logo y favicon -->
+  <link rel="icon" type="image/png"
+    href="https://raw.githubusercontent.com/yovanycalderondev-lab/Pagina/main/img/cybersentinel-logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #071426;
+      --bg-light: #0b1d33;
+      --panel: #0d223b;
+      --blue: #3b82f6;
+      --cyan: #48d9f5;
+      --text: #f1f7ff;
+      --muted: #9eb0c8;
+      --border: rgba(133, 176, 225, 0.16);
+      --gradient: linear-gradient(120deg, #58e4f4, #4c8dff);
+      --font: 'Inter', sans-serif;
+      --display: 'Space Grotesk', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .glow {
+      position: absolute;
+      z-index: -1;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: #1265e8;
+      filter: blur(150px);
+      opacity: .12;
+      pointer-events: none;
+    }
+
+    /* NAVEGACIÓN */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 20, 38, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font: 700 16px var(--display);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .brand span span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 29px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-cta {
+      padding: 10px 17px;
+      border: 1px solid rgba(72, 217, 245, .4);
+      border-radius: 7px;
+      color: white !important;
+    }
+
+    .nav-cta:hover {
+      background: rgba(72, 217, 245, .09);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* GENERAL */
+
+    section {
+      position: relative;
+    }
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 23px;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--cyan);
+    }
+
+    h1, h2, h3 {
+      font-family: var(--display);
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 46px);
+      letter-spacing: -1.5px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-intro {
+      max-width: 610px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 19px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 14px 20px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      background: var(--gradient);
+      color: #061426;
+      box-shadow: 0 8px 30px rgba(59, 130, 246, .18);
+    }
+
+    .button-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 40px;
+      padding-top: 65px;
+      padding-bottom: 75px;
+    }
+
+    .hero h1 {
+      max-width: 650px;
+      font-size: clamp(44px, 5.4vw, 69px);
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 510px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 36px;
+      color: #849ab5;
+      font-size: 11px;
+    }
+
+    .hero-note span {
+      color: var(--cyan);
+      font-size: 19px;
+    }
+
+    /* ILUSTRACIÓN CSS */
+
+    .hero-visual {
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(100, 170, 240, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 170, 240, .07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse, black, transparent 72%);
+    }
+
+    .orbit {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border: 1px solid rgba(72, 217, 245, .2);
+      border-radius: 50%;
+      animation: rotate 30s linear infinite;
+    }
+
+    .orbit::before, .orbit::after {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      background: var(--cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
+    .orbit::before {
+      top: 45px;
+      left: 42px;
+    }
+
+    .orbit::after {
+      right: 20px;
+      bottom: 100px;
+      background: var(--blue);
+    }
+
+    .orbit-two {
+      width: 245px;
+      height: 245px;
+      border-style: dashed;
+      border-color: rgba(85, 144, 255, .28);
+      animation-direction: reverse;
+      animation-duration: 45s;
+    }
+
+    .shield {
+      width: 180px;
+      height: 205px;
+      display: grid;
+      place-items: center;
+      clip-path: polygon(50% 0, 94% 17%, 90% 61%, 76% 83%, 50% 100%, 24% 83%, 10% 61%, 6% 17%);
+      background: linear-gradient(145deg, #52e4f4, #3375ed 60%, #153b88);
+      filter: drop-shadow(0 0 30px rgba(59, 130, 246, .3));
+      position: relative;
+      z-index: 2;
+    }
+
+    .shield-inner {
+      width: 169px;
+      height: 194px;
+      display: grid;
+      place-items: center;
+      clip-path: polygon(50% 0, 94% 17%, 90% 61%, 76% 83%, 50% 100%, 24% 83%, 10% 61%, 6% 17%);
+      background: linear-gradient(145deg, #102e53, #08192e);
+    }
+
+    .shield-inner svg {
+      width: 80px;
+      filter: drop-shadow(0 0 12px rgba(72, 217, 245, .55));
+    }
+
+    .float-card {
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px 16px;
+      background: rgba(10, 29, 51, .94);
+      border: 1px solid rgba(114, 175, 230, .23);
+      border-radius: 9px;
+      box-shadow: 0 15px 45px #0003;
+      backdrop-filter: blur(12px);
+    }
+
+    .float-card strong, .float-card small {
+      display: block;
+    }
+
+    .float-card strong {
+      font-size: 10px;
+    }
+
+    .float-card small {
+      color: var(--muted);
+      font-size: 9px;
+      margin-top: 3px;
+    }
+
+    .float-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      color: var(--cyan);
+      background: rgba(72, 217, 245, .1);
+      font-size: 19px;
+    }
+
+    .float-one {
+      top: 48px;
+      right: -4px;
+    }
+
+    .float-two {
+      bottom: 50px;
+      left: -4px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #45e4ad;
+      box-shadow: 0 0 10px #45e4ad;
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    /* CINTA */
+
+    .ticker {
+      padding: 17px 0;
+      overflow: hidden;
+      border-block: 1px solid var(--border);
+      background: #091a2d;
+    }
+
+    .ticker-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 25px;
+      min-width: 720px;
+      color: #a1b6cd;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .ticker-inner span:nth-child(even) {
+      color: var(--cyan);
+    }
+
+    /* SOBRE NOSOTROS */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 55px;
+    }
+
+    .value-card {
+      padding: 25px;
+      background: linear-gradient(145deg, #0e2540, #0a1a2e);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(72, 217, 245, .4);
+    }
+
+    .value-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      color: var(--cyan);
+      background: rgba(72, 217, 245, .08);
+      border: 1px solid rgba(72, 217, 245, .19);
+      border-radius: 9px;
+      font-size: 21px;
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      font-size: 17px;
+      margin-bottom: 9px;
+    }
+
+    .value-card p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* SERVICIOS */
+
+    .services-section {
+      background: #091a2c;
+      border-block: 1px solid var(--border);
+    }
+
+    .services-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 35px;
+      margin-bottom: 43px;
+    }
+
+    .services-heading .section-intro {
+      max-width: 390px;
+      margin: 0;
+    }
+
+    .service-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 45px 55px 1fr 25px;
+      align-items: center;
+      gap: 17px;
+      padding: 24px 7px;
+      border-bottom: 1px solid var(--border);
+      transition: background .2s;
+    }
+
+    .service-item:hover {
+      background: rgba(31, 73, 116, .12);
+    }
+
+    .service-number {
+      color: #718ba8;
+      font: 600 11px var(--display);
+    }
+
+    .service-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(72, 217, 245, .2);
+      border-radius: 9px;
+      color: var(--cyan);
+      font-size: 21px;
+    }
+
+    .service-item h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .service-item p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .service-arrow {
+      color: var(--cyan);
+      font-size: 19px;
+    }
+
+    .fine-print {
+      color: #7489a2;
+      font-size: 10px;
+      margin-top: 20px;
+    }
+
+    /* SECTORES */
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: .9fr 1fr;
+      gap: 90px;
+    }
+
+    .industry-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .industry {
+      display: flex;
+      gap: 16px;
+      padding: 19px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .industry-mark {
+      color: var(--cyan);
+      font-size: 18px;
+    }
+
+    .industry h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .industry p {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* MISIÓN Y VISIÓN */
+
+    .mission-section {
+      background: linear-gradient(115deg, #0b1e33, #0a1729);
+      border-block: 1px solid var(--border);
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .mission-card {
+      padding: 25px 0;
+    }
+
+    .mission-symbol {
+      font-size: 26px;
+      color: var(--cyan);
+    }
+
+    .mission-card h2 {
+      font-size: 27px;
+      margin: 16px 0;
+    }
+
+    .mission-card p {
+      max-width: 480px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    /* CONTACTO */
+
+    .contact-section {
+      padding-block: 100px;
+    }
+
+    .contact-panel {
+      text-align: center;
+      padding: 70px 25px;
+      border: 1px solid rgba(72, 217, 245, .22);
+      border-radius: 15px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, .16), transparent 65%),
+        #0b1c30;
+    }
+
+    .contact-panel .eyebrow {
+      justify-content: center;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(34px, 4.5vw, 50px);
+    }
+
+    .contact-panel p {
+      max-width: 570px;
+      margin: 20px auto 28px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      min-height: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-content p {
+      margin: 0;
+    }
+
+    .footer-brand img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* ANIMACIONES */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding-top: 75px;
+      }
+
+      .hero-visual {
+        min-height: 390px;
+      }
+
+      .about-grid, .industries-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .services-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: calc(100% - 36px);
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      .brand {
+        font-size: 13px;
+      }
+
+      .brand img {
+        width: 33px;
+        height: 33px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 23px;
+        flex-direction: column;
+        align-items: stretch;
+        background: #09192b;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 7px 0;
+      }
+
+      .nav-links .nav-cta {
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 65px;
+        padding-bottom: 45px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+
+      .orbit {
+        width: 280px;
+        height: 280px;
+      }
+
+      .orbit-two {
+        width: 220px;
+        height: 220px;
+      }
+
+      .shield {
+        width: 150px;
+        height: 175px;
+      }
+
+      .shield-inner {
+        width: 141px;
+        height: 165px;
+      }
+
+      .float-card {
+        padding: 10px;
+        gap: 8px;
+      }
+
+      .float-card strong {
+        font-size: 9px;
+      }
+
+      .float-card small {
+        font-size: 8px;
+      }
+
+      .float-one {
+        top: 18px;
+        right: 0;
+      }
+
+      .float-two {
+        bottom: 17px;
+        left: 0;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+        margin-top: 35px;
+      }
+
+      .value-card {
+        padding: 23px;
+      }
+
+      .service-item {
+        grid-template-columns: 24px 38px 1fr 15px;
+        gap: 9px;
+        padding: 20px 0;
+      }
+
+      .service-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 17px;
+      }
+
+      .service-item h3 {
+        font-size: 12px;
+      }
+
+      .service-item p {
+        font-size: 10px;
+        line-height: 1.6;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .contact-section {
+        padding-block: 65px;
+      }
+
+      .contact-panel {
+        padding: 48px 18px;
+      }
+
+      .footer-content {
+        padding: 22px 0;
+        flex-wrap: wrap;
+      }
+
+      .footer-content p {
+        width: 100%;
+        order: 3;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow" style="top:150px;left:-200px"></div>
+  <div class="glow" style="top:850px;right:-200px;background:#00bcd4"></div>
+
+  <!-- NAVEGACIÓN -->
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#inicio" aria-label="CyberSentinel, inicio">
+        <img src="https://raw.githubusercontent.com/yovanycalderondev-lab/Pagina/main/img/cybersentinel-logo.png" alt="Logo CyberSentinel">
+        <span>CYBER<span>SENTINEL</span></span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sectores">Sectores</a>
+        <a href="#vision">Visión</a>
+        <a class="nav-cta" href="#contacto">Contáctanos ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="container hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow">Seguridad digital · Nueva generación</div>
+
+        <h1>
+          Tu mundo digital.<br>
+          <span class="gradient-text">Bajo tu control.</span>
+        </h1>
+
+        <p class="hero-description">
+          Conoce tu entorno digital, identifica riesgos y toma decisiones
+          más inteligentes para proteger lo que importa.
+          Ciberseguridad diseñada para personas, emprendedores y empresas.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button button-primary" href="#servicios">Explorar servicios ↗</a>
+          <a class="button button-outline" href="#nosotros">Conócenos ↓</a>
+        </div>
+
+        <div class="hero-note">
+          <span>◈</span>
+          Seguridad digital accesible, comprensible y proactiva.
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Ilustración de un escudo de ciberseguridad">
+        <div class="grid-bg"></div>
+        <div class="orbit"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="shield">
+          <div class="shield-inner">
+            <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <path d="M50 8L83 21V45C83 67 69 82 50 92C31 82 17 67 17 45V21L50 8Z"
+                stroke="#69e8ff" stroke-width="3.5"/>
+              <path d="M32 49L44 61L69 35"
+                stroke="#69e8ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="float-card float-one">
+          <div class="float-icon">⌘</div>
+          <div>
+            <strong>Visibilidad digital</strong>
+            <small>Conoce tus activos</small>
+          </div>
+          <span class="live-dot"></span>
+        </div>
+
+        <div class="float-card float-two">
+          <div class="float-icon">⌁</div>
+          <div>
+            <strong>Gestión de alertas</strong>
+            <small>Información centralizada</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENFOQUE -->
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span>GESTIÓN DE ACTIVOS</span><span>✳</span>
+        <span>VISIBILIDAD DIGITAL</span><span>✳</span>
+        <span>MONITOREO DE ALERTAS</span><span>✳</span>
+        <span>PREVENCIÓN DE RIESGOS</span>
+      </div>
+    </div>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="container section" id="nosotros">
+      <div class="eyebrow">01 — Sobre nosotros</div>
+
+      <div class="about-grid">
+        <div>
+          <h2>La seguridad digital debe ser <span class="gradient-text">para todos.</span></h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            CyberSentinel is una plataforma de ciberseguridad diseñada para
+            ayudar a personas y organizaciones a conocer, gestionar y proteger
+            su entorno digital.
+          </p>
+          <p>
+            Nuestra meta es hacer que la seguridad digital sea más comprensible
+            y accesible, facilitando la identificación de riesgos y la toma de
+            decisiones informadas.
+          </p>
+        </div>
+      </div>
+
+      <div class="value-grid">
+        <article class="value-card reveal">
+          <div class="value-icon">⌕</div>
+          <h3>Visibilidad</h3>
+          <p>Organiza la información de tus activos digitales para comprender mejor tu entorno tecnológico.</p>
+        </article>
+
+        <article class="value-card reveal">
+          <div class="value-icon">⌁</div>
+          <h3>Prevención</h3>
+          <p>Presta atención a las alertas y señales que pueden requerir una revisión de seguridad.</p>
+        </article>
+
+        <article class="value-card reveal">
+          <div class="value-icon">◈</div>
+          <h3>Control</h3>
+          <p>Reúne información relevante para facilitar decisiones más conscientes sobre seguridad.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="services-section" id="servicios">
+      <div class="container section">
+        <div class="eyebrow">02 — Nuestros servicios</div>
+
+        <div class="services-heading">
+          <h2>Herramientas para<br><span class="gradient-text">proteger tu entorno.</span></h2>
+          <p class="section-intro">
+            Soluciones orientadas a mejorar la visibilidad, la organización
+            y la gestión de la seguridad digital.
+          </p>
+        </div>
+
+        <div class="service-list">
+          <article class="service-item reveal">
+            <span class="service-number">01</span>
+            <div class="service-icon">▦</div>
+            <div>
+              <h3>Gestión de activos digitales</h3>
+              <p>Identificación y organización de dispositivos, sistemas y recursos tecnológicos.</p>
+            </div>
+            <span class="service-arrow">↗</span>
+          </article>
+
+          <article class="service-item reveal">
+            <span class="service-number">02</span>
+            <div class="service-icon">⌁</div>
+            <div>
+              <h3>Monitoreo de alertas de seguridad</h3>
+              <p>Centralización de alertas para facilitar la identificación de situaciones que requieren atención.</p>
+            </div>
+            <span class="service-arrow">↗</span>
+          </article>
+
+          <article class="service-item reveal">
+            <span class="service-number">03</span>
+            <div class="service-icon">◎</div>
+            <div>
+              <h3>Supervisión de seguridad digital</h3>
+              <p>Mayor visibilidad del entorno tecnológico para apoyar la prevención de riesgos.</p>
